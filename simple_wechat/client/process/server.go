@@ -4,6 +4,7 @@ import (
 	"os"
 	"net"
 	"simple_wechat/common/utils"
+	"simple_wechat/common/message"
 )
 
 //显示登录成功后的界面
@@ -46,6 +47,17 @@ func ServerProcessMes(conn net.Conn) {
 			return
 		}
 		//如果读取到消息，进一步处理
-		fmt.Printf("mes=%v", mes)
+		switch mes.Type {
+		case message.NotifyUserStatusMesType : //有人上线了
+			//1.取出.NotifyUserStatusMes
+			//2.把这个用户的信息，状态保存到客户map中， map[int]User
+			var notifyUserStatusMes message.NotifyUserStatusMes
+			json.Unmarshal([]byte(mes.Data), &notifyUserStatusMes)
+			updateUserStatus(&notifyUserStatusMes)
+
+		default:
+			fmt.Println("服务器返回了未知消息类型")
+		}
+		//fmt.Printf("mes=%v", mes)
 	}
 }

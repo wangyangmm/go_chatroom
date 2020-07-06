@@ -77,6 +77,12 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 				continue
 			}
 			fmt.Println("用户id:\t", v)
+			//初始化客户端用户列表 onineUsers
+			user := &User {
+				UserId : v,
+				UserStatus : message.UserOnline,
+			}
+			onlineUsers[v] = user
 		}
 		fmt.Print("\n\n")
 
