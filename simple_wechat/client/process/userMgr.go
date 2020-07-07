@@ -2,10 +2,11 @@ package process
 import (
 	"fmt"
 	"simple_wechat/common/model"
+	"simple_wechat/common/message"
 )
 
 //客户端要维护的map
-var onlineUsers map[int]*User = make(map[int]*User)
+var onlineUsers map[int]*model.User = make(map[int]*model.User)
 
 //在客户端显示当前在线的用户
 func outputOnlineUser() {
@@ -17,11 +18,11 @@ func outputOnlineUser() {
 }
 
 //编写一个方法，处理返回的NotifyUserStatusMes
-func updateUserStatus(notifyUserStatusMes * message.notifyUserStatusMes) {
+func updateUserStatus(notifyUserStatusMes * message.NotifyUserStatusMes) {
 
 	user, ok := onlineUsers[notifyUserStatusMes.UserId]
 	if !ok { //原来没有
-		user := &message.User {
+		user = &model.User {
 			UserId : notifyUserStatusMes.UserId,
 		}
 	}

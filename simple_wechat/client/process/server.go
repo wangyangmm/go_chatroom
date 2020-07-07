@@ -5,6 +5,7 @@ import (
 	"net"
 	"simple_wechat/common/utils"
 	"simple_wechat/common/message"
+	"encoding/json"
 )
 
 //显示登录成功后的界面

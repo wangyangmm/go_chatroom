@@ -6,6 +6,7 @@ import (
 	"net"
 	"simple_wechat/common/message"
 	"simple_wechat/common/utils"
+	"simple_wechat/common/model"
 )
 
 type UserProcess struct {
@@ -78,7 +79,7 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 			}
 			fmt.Println("用户id:\t", v)
 			//初始化客户端用户列表 onineUsers
-			user := &User {
+			user := &model.User {
 				UserId : v,
 				UserStatus : message.UserOnline,
 			}
