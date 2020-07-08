@@ -4,9 +4,9 @@ import (
 	"os"
 	"encoding/json"
 	"net"
-	"simple_wechat/common/message"
-	"simple_wechat/common/utils"
-	"simple_wechat/common/model"
+	"go_chatroom/simple_wechat/common/message"
+	"go_chatroom/simple_wechat/common/utils"
+	"go_chatroom/simple_wechat/common/model"
 )
 
 type UserProcess struct {
@@ -70,6 +70,10 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 	var loginResMes message.LoginResMes
 	err = json.Unmarshal([]byte(mes.Data), &loginResMes)
 	if loginResMes.Code == 200 {
+		//初始化curUser
+		curUser.Conn = conn
+		curUser.UserId = userId
+		curUser.UserStatus = message.UserOnline
 		//显示当前在线用户列表
 		fmt.Println("当前在线用户列表如下:")
 		for _, v := range loginResMes.UsersId {

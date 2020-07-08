@@ -3,7 +3,7 @@ import (
 	"fmt"
 	"github.com/garyburd/redigo/redis"
 	"encoding/json"
-	//"simple_wechat/common/message"
+	//"go_chatroom/simple_wechat/common/message"
 )
 
 //我们在服务器启动后，就初始化一个全局的userDao实例

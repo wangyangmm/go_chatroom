@@ -2,7 +2,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"simple_wechat/client/process"
+	"go_chatroom/simple_wechat/client/process"
 )
 
 //定义两个全局变量，一个表示用户id，一个表示用户密码

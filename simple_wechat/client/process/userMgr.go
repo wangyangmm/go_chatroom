@@ -1,12 +1,13 @@
 package process
 import (
 	"fmt"
-	"simple_wechat/common/model"
-	"simple_wechat/common/message"
+	"go_chatroom/simple_wechat/common/model"
+	"go_chatroom/simple_wechat/common/message"
 )
 
 //客户端要维护的map
 var onlineUsers map[int]*model.User = make(map[int]*model.User)
+var curUser model.CurUser //登录成功后，进行初始化
 
 //在客户端显示当前在线的用户
 func outputOnlineUser() {

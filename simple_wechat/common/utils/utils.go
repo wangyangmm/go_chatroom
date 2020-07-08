@@ -2,7 +2,7 @@ package utils
 import (
 	"fmt"
 	"net"
-	"simple_wechat/common/message"
+	"go_chatroom/simple_wechat/common/message"
 	"encoding/json"
 	"encoding/binary"
 )

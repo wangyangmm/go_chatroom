@@ -2,9 +2,9 @@ package process
 import (
 	"fmt"
 	"net"
-	"simple_wechat/common/message"
-	"simple_wechat/common/utils"
-	"simple_wechat/common/model"
+	"go_chatroom/simple_wechat/common/message"
+	"go_chatroom/simple_wechat/common/utils"
+	"go_chatroom/simple_wechat/common/model"
 	"encoding/json"
 	
 )

@@ -3,8 +3,8 @@ import (
 	"fmt"
 	"net"
 	"io"
-	"simple_wechat/common/utils"
-	"simple_wechat/common/message"
+	"go_chatroom/simple_wechat/common/utils"
+	"go_chatroom/simple_wechat/common/message"
 )
 
 type Processor struct {
@@ -31,6 +31,10 @@ func (this *Processor) ServerProcessMes(mes *message.Message) (err error) {
 			fmt.Println("up.ServerProcessRegister err=", err)
 			return
 		}
+	case message.SmsMesType :
+		//创建一个SmsProcess实例完成转发群聊消息
+		smsProcess := &SmsProcess{}
+		smsProcess.SendGroupMes(mes)
 	default :
 		fmt.Println("消息类型不存在，无法处理！")
 	}

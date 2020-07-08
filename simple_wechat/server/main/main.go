@@ -2,8 +2,8 @@ package main
 import (
 	"fmt"
 	"net"
-	"simple_wechat/server/process"
-	"simple_wechat/common/model"
+	"go_chatroom/simple_wechat/server/process"
+	"go_chatroom/simple_wechat/common/model"
 	"time"
 )
 
