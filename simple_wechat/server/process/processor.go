@@ -31,10 +31,14 @@ func (this *Processor) ServerProcessMes(mes *message.Message) (err error) {
 			fmt.Println("up.ServerProcessRegister err=", err)
 			return
 		}
-	case message.SmsMesType :
+	case message.SmsGroupMesType :
 		//创建一个SmsProcess实例完成转发群聊消息
-		smsProcess := &SmsProcess{}
+		smsProcess := &ServerSmsProcess{}
 		smsProcess.SendGroupMes(mes)
+	case message.SmsMesType :
+		//转发私信
+		smsProcess := &ServerSmsProcess{}
+		smsProcess.SendMes(mes)
 	default :
 		fmt.Println("消息类型不存在，无法处理！")
 	}
@@ -67,5 +71,4 @@ func (this *Processor) Process() (err error) {
 			return err
 		}
 	}
-	return
 }
